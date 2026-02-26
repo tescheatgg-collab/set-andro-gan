@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt AI Coding - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #050a18;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .glow-icon {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+        }
+        .inner-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            min-height: 120px;
+            white-space: pre-line; /* Menjaga baris teks tetap rapi ke bawah */
+        }
+        .btn-copy {
+            background: #ffffff;
+            color: #000000;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-copy:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <div class="flex flex-col items-center mb-12">
+        <div class="w-20 h-20 rounded-2xl overflow-hidden glow-icon mb-6">
+            <img src="https://files.catbox.moe/l7gj4j.jpg" alt="Logo" class="w-full h-full object-cover">
+        </div>
+        
+        <h1 class="text-3xl font-bold tracking-tight mb-2 uppercase text-center">
+            SET ANDRO EPEP🩲
+        </h1>
+        <p class="text-gray-400 text-center max-w-md">
+            KOLEKSI MACAM MACAM SET ANDRO EPEP GACOR YGY BTW KALO MAU NYALIN TEKEN AJA YA🗿
+        </p>
+    </div>
+
+    <div class="max-w-2xl mx-auto space-y-6">
+
+        <div class="glass-card p-6">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-bomb text-red-400"></i>
+                <h2 class="font-semibold text-lg"> SET ANDRO 1</h2>
+            </div>
+            <div id="set1" class="inner-box p-4 mb-4 text-gray-300 text-sm">SET ANDRO GACOR 60Hz + EASY DRAG :
+SENSI 197 200 199 100 150 192
+LOG BUFFER: 64k
+SKALA ANIMASI JENDELA: 0,5x
+SKALA ANIMASI TRANSISI: 0,5x
+SKALA DURASI ANIMATOR : 0,5x
+DPI 645
+4X MSAA: ON
+MAX PERSESI: 89
+LEVEL LOGGING: DEBUG
+TOTEM: 50/55 
+by : youknowlenzz_alz</div>
+            <button onclick="salinPrompt('set1', this)" class="w-full py-3 rounded-xl btn-copy flex items-center justify-center gap-2">
+                <i class="fa-solid fa-copy"></i> SALIN PROMPT
+            </button>
+        </div>
+
+        <div class="glass-card p-6">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-skull text-yellow-400"></i>
+                <h2 class="font-semibold text-lg">SET ANDRO 2</h2>
+            </div>
+            <div id="set2" class="inner-box p-4 mb-4 text-gray-300 text-sm">SENSI: 179-34-120-0-27-89
+TOTEM: 35
+DPI: 470
+LOG BUFFER: 64K
+3SKALA: 0,5-0,5-1X
+DRIVER GRAFIS: UBAH KE ΕΡΕΡ
+4x MSAA: OF
+DRAG: L/J/I 
+by : kekeyyimoupp</div>
+            <button onclick="salinPrompt('set2', this)" class="w-full py-3 rounded-xl btn-copy flex items-center justify-center gap-2">
+                <i class="fa-solid fa-copy"></i> SALIN PROMPT
+            </button>
+        </div>
+
+        <div class="glass-card p-6">
+            <div class="flex items-center gap-2 mb-4">
+                <i class="fa-solid fa-rocket text-blue-400"></i>
+                <h2 class="font-semibold text-lg">SET ANDRO 3</h2>
+            </div>
+            <div id="set3" class="inner-box p-4 mb-4 text-gray-300 text-sm">OPEN SETING 120HZ
+DPI=400-700
+SENSI:180,75,170,165,100,200
+LOG BUFFER=MATI
+SKALA ANIMASI=ALL 1
+PAKSA 4XMSSA=ON
+PREFERENSI DRIFER GRAFIS=ON
+DRAG ALL DRAG
+TOTEM=40 
+by : jullsoftfpoken2</div>
+            <button onclick="salinPrompt('set3', this)" class="w-full py-3 rounded-xl btn-copy flex items-center justify-center gap-2">
+                <i class="fa-solid fa-copy"></i> SALIN PROMPT
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        function salinPrompt(id, btn) {
+            const target = document.getElementById(id);
+            if (!target) return;
+            
+            const copyText = target.innerText;
+            const originalContent = btn.innerHTML;
+
+            function handleSuccess() {
+                btn.innerHTML = '<i class="fa-solid fa-check text-green-600"></i> TERSALIN!';
+                btn.style.backgroundColor = "#d1fae5";
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.backgroundColor = "#ffffff";
+                }, 2000);
+            }
+
+            // Gabungan metode Modern & Manual untuk jaminan fungsi di HP
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(copyText).then(handleSuccess).catch(() => manualCopy(copyText));
+            } else {
+                manualCopy(copyText);
+            }
+
+            function manualCopy(text) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                textArea.style.top = "0";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    handleSuccess();
+                } catch (err) {
+                    alert('Gagal menyalin otomatis, Bos!');
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+    </script>
+</body>
+</html>
